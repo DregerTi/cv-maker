@@ -89,9 +89,9 @@ jobs:
             - name: Deploy production to Netlify
               uses: jsmrcaga/action-netlify-deploy@v2.0.0
               with:
-                netlify-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-                netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
+                NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+                NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+                NETLIFY_DEPLOY_TO_PROD: true
                 build-dir: './build'
                 install_command: 'pnpm install'
                 build_command: 'pnpm run build'
-                comment-on-commit: true
