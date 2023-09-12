@@ -85,3 +85,12 @@ jobs:
               run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
             - name: Deploy Project Artifacts to Vercel
               run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
+
+            - name: Deploy production to Netlify
+              uses: South-Paw/action-netlify-deploy@v1.2.0
+              with:
+                github-token: ${{ secrets.GITHUB_TOKEN }}
+                netlify-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+                netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }}
+                build-dir: './build'
+                comment-on-commit: true
