@@ -35,3 +35,12 @@ jobs:
 
             - name: Build
               run: pnpm run build
+
+            - name: Run server
+              run: |
+                    pnpm run preview &
+                    sleep 5
+
+            - name: Test curl
+              run: |
+                    curl -I http://localhost:4173
